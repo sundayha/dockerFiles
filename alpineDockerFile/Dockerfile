@@ -8,7 +8,8 @@ LABEL com.example.label-with-value="foo"
 LABEL version="1.0"
 LABEL description="This text illustrates \
 that label-values can span multiple lines."
-#ENV foo /bar
+ADD 1.jpg /home
+#ENV foo abc
 #ENV foo1 /bar1
 #WORKDIR $foo 
 #ADD . $foo
