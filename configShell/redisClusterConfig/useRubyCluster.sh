@@ -1,1 +1,0 @@
-docker run -i --rm -e LANG=en_US.UTF-8  --net redis-net redis redis-cli --cluster create 172.18.0.2:7000 172.18.0.3:7001 172.18.0.4:7002 172.18.0.5:7003 172.18.0.6:7004 172.18.0.7:7005 --cluster-replicas 1
