@@ -1,7 +1,1 @@
-echo yes | docker run -i --rm -e LANG=en_US.UTF-8  --net redis-net ruby:2.5 sh -c '\
-  gem install redis \
-  && wget http://download.redis.io/redis-stable/src/redis-trib.rb \
-  && ruby redis-trib.rb create --replicas 1 \
-  '"$(for port in `seq 7000 7005`; do \
-    echo -n "$(docker inspect --format '{{ (index .NetworkSettings.Networks "redis-net").IPAddress }}' "redis-${port}")":${port} ' ' ; \
-  done)"
+docker run -i --rm -e LANG=en_US.UTF-8  --net redis-net redis redis-cli --cluster create 172.18.0.2:7000 172.18.0.3:7001 172.18.0.4:7002 172.18.0.5:7003 172.18.0.6:7004 172.18.0.7:7005 --cluster-replicas 1
